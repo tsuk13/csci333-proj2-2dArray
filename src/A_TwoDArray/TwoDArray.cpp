@@ -17,6 +17,10 @@ TwoDArray<T>::TwoDArray(int r, int c, T def){
 
 template <typename T>
 TwoDArray<T>::~TwoDArray(){
+  for(int i = 0; i < rows; i++){
+    delete[] array[i];
+  }
+  delete[] array;
 }
 
 template <typename T>
