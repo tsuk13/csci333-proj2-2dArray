@@ -9,8 +9,8 @@ class TwoDArray{
     int cols;
   
   public:
-    //constructor
-    TwoDArray<T>(int r, int c, T value);
+    //constructor with def being the default value
+    TwoDArray<T>(int r, int c, T def);
     //deconstructor
     ~TwoDArray<T>();
     //replaces value at row r and col c
