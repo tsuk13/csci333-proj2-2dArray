@@ -3,14 +3,15 @@
 #include"TwoDArray.h"
 
 template <typename T>
-TwoDArray<T>::TwoDArray(int r, int c, T def){
+TwoDArray<T>::TwoDArray(int r, int c, T d){
   rows = r;
   cols = c;
+  def = d;
   array = new T*[r];
   for(int i = 0; i < r; i++){
     array[i] = new T[c];
     for(int j = 0; j < c; j++){
-      array[i][j] = def;
+      array[i][j] = d;
     }
   }
 }
@@ -35,6 +36,7 @@ T TwoDArray<T>::access(int r, int c){
 
 template <typename T>
 void TwoDArray<T>::remove(int r, int c){
+  array[r][c] = def; 
 }
 
 template <typename T>

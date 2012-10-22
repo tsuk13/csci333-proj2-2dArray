@@ -7,10 +7,11 @@ class TwoDArray{
     T** array;
     int rows;
     int cols;
+    T def;
   
   public:
     //constructor with def being the default value
-    TwoDArray<T>(int r, int c, T def);
+    TwoDArray<T>(int r, int c, T d);
     //deconstructor
     ~TwoDArray<T>();
     //replaces value at row r and col c
