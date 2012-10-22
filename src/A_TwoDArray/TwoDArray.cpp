@@ -25,11 +25,12 @@ TwoDArray<T>::~TwoDArray(){
 
 template <typename T>
 void TwoDArray<T>::insert(int r, int c, T value){
+  array[r][c] = value;
 }
 
 template <typename T>
 T TwoDArray<T>::access(int r, int c){
-  return array[0][0];
+  return array[r][c];
 }
 
 template <typename T>
