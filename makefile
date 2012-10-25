@@ -1,9 +1,14 @@
 CPP = g++
 CFLAGS = -Wall -Werror
 ArrayDir = src/A_TwoDArray
-build = build
+BUILD = build
+TEST = test
+LIB = lib
 
-all: $(build)/A_TwoDArray
+all: $(BUILD)/A_TwoDArray $(TEST)/A_TwoDArray_Test
 
-$(build)/A_TwoDArray: $(ArrayDir)/TwoDArray.cpp $(ArrayDir)/TwoDArray.h $(ArrayDir)/TwoDArrayTest.cpp
+$(BUILD)/A_TwoDArray: $(ArrayDir)/TwoDArray.cpp $(ArrayDir)/TwoDArray.h $(ArrayDir)/TwoDArrayTest.cpp
 	cd $(ArrayDir); $(MAKE)
+
+$(TEST)/A_TwoDArray_Test: $(TEST)/A_TwoDArray_Test.cpp
+	cd $(TEST); $(MAKE)

@@ -1,9 +1,11 @@
 #include<iostream>
 #include<string>
+#include<cassert>
 #include"TwoDArray.h"
 
 template <typename T>
 TwoDArray<T>::TwoDArray(int r, int c, T d){
+  assert(r > 0 && c > 0);
   rows = r;
   cols = c;
   def = d;
@@ -26,6 +28,7 @@ TwoDArray<T>::~TwoDArray(){
 
 template <typename T>
 void TwoDArray<T>::insert(int r, int c, T value){
+  assert(r >= 0 && r < rows && c >= 0 && c < cols);
   array[r][c] = value;
 }
 
