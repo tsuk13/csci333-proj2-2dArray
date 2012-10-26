@@ -47,6 +47,16 @@ void TwoDArray<T>::print(){
   }
 }
 
+template <typename T>
+int TwoDArray<T>::getNumRows(){
+  return rows;
+}
+
+template <typename T>
+int TwoDArray<T>::getNumCols(){
+  return cols;
+}
+
 template class TwoDArray<int>;
 template class TwoDArray<double>;
 template class TwoDArray<std::string>;

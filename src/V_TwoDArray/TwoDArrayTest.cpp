@@ -8,5 +8,7 @@ int main(){
   a->insert(0,0,5);
   a->remove(0,0);
   a->print();
+  cout << a->getNumRows() << " " << a->getNumCols() << "\n";
+  
   return 0;
 }
