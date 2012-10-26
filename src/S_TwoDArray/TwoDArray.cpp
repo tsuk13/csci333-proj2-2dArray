@@ -35,7 +35,6 @@ void TwoDArray<T>::insert(int r, int c, T value){
   }
   else{
     newNode->setColNext((*cur)->getColNext());
-    delete (*cur);
     *cur = newNode;
   }
   //insert place in column
@@ -49,16 +48,41 @@ void TwoDArray<T>::insert(int r, int c, T value){
   }
   else{
     newNode->setRowNext((*cur)->getRowNext());
-    delete (*cur);
+    Node<T>* tmp = (*cur);
     *cur = newNode;
+    delete tmp;
   }
 }
-/*
+
 template <typename T>
 T TwoDArray<T>::access(int r, int c){
   assert(r >= 0 && r < rows && c >= 0 && c < cols);
+  if(c < r){
+    Node<T>* cur = rowA[r];
+    while(cur != 0 && cur->getCol() < c){
+      cur = cur->getColNext();
+    }
+    if(cur == 0)
+      return def;
+    else if(cur->getCol() != c)
+      return def;
+    else
+      return cur->getValue();
+  }
+  else{
+    Node<T>* cur = colA[c];
+    while(cur != 0 && cur->getRow() < r){
+      cur = cur->getRowNext();
+    }
+    if(cur == 0)
+      return def;
+    else if(cur->getRow() != r)
+      return def;
+    else
+      return cur->getValue();
+  }
 }
-
+/*
 template <typename T>
 void TwoDArray<T>::remove(int r, int c){
   assert(r >= 0 && r < rows && c >= 0 && c < cols);
