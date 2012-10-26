@@ -8,7 +8,6 @@ int main(){
   a->insert(0,0,2);
   a->remove(1,1);
   a->remove(0,0);
-  std::cout << a->access(0,0) << ", " << a->access(0,1) << a->access(0,2) <<  "\n";
-  std::cout << a->access(1,0) << ", " << a->access(1,1) << a->access(1,2) << "\n";
+  a->print();
   return 0;
 }
