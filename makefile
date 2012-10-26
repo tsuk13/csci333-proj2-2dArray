@@ -29,5 +29,7 @@ $(TEST)/S_TwoDArray_Test: $(TEST)/S_TwoDArray_Test.cpp
 
 clean:
 	rm -f build/*
+	cd $(ArrayDir); $(MAKE) clean
+	cd $(VectorDir); $(MAKE) clean
 	cd $(SparseDir); $(MAKE) clean
 	cd $(TEST); $(MAKE) clean

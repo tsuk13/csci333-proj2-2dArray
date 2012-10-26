@@ -7,3 +7,6 @@ $(build)/A_TwoDArray: TwoDArray.o TwoDArrayTest.cpp
 
 TwoDArray.o: TwoDArray.h TwoDArray.cpp
 	$(CPP) $(CFLAGS) -c TwoDArray.cpp
+
+clean:
+	rm -f *.o

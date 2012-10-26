@@ -46,7 +46,6 @@ void TwoDArray<T>::remove(int r, int c){
 
 template <typename T>
 void TwoDArray<T>::print(){
-std::cout << "\n";
   for(int r = 0; r < rows; r++){
     for(int c = 0; c < cols; c++){
       std::cout << array[r][c];
