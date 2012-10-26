@@ -12,10 +12,24 @@ TwoDArray<T>::TwoDArray(int r, int c, T d){
   def = d;
   rowA = new Node<T>*[rows];
   colA = new Node<T>*[cols];
+  for(int i = 0; i < r; i++){
+    rowA[i] = 0;
+  }
+  for(int i = 0; i < c; i++){
+    colA[i] = 0;
+  }
 }
 
 template <typename T>
 TwoDArray<T>::~TwoDArray(){
+  for(int i = 0; i < rows; i++){
+    Node<T>* cur = rowA[i];
+    while(cur != 0){
+      Node<T>* tmp = cur;
+      cur = cur->getColNext();
+      delete tmp;
+    }
+  }
   delete[] rowA;
   delete[] colA;
 }
@@ -91,6 +105,8 @@ void TwoDArray<T>::remove(int r, int c){
   while(*cur != 0 && (*cur)->getCol() < c){
     cur = &((*cur)->getColNext());
   }
+  if(*cur == 0)
+    return;
   if((*cur)->getCol() == c){
     *cur = (*cur)->getColNext();
   }
@@ -101,6 +117,8 @@ void TwoDArray<T>::remove(int r, int c){
   while(*cur != 0 && (*cur)->getRow() < r){
     cur = &((*cur)->getRowNext());
   }
+  if(*cur == 0)
+    return;
   if((*cur)->getRow() == r){
     Node<T>* tmp = (*cur);
     *cur = (*cur)->getRowNext();

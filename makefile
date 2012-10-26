@@ -7,7 +7,7 @@ BUILD = build
 TEST = test
 LIB = lib
 
-all: $(BUILD)/A_TwoDArray $(TEST)/A_TwoDArray_Test $(BUILD)/V_TwoDArray $(TEST)/V_TwoDArray_Test $(BUILD)/S_TwoDArray
+all: $(BUILD)/A_TwoDArray $(TEST)/A_TwoDArray_Test $(BUILD)/V_TwoDArray $(TEST)/V_TwoDArray_Test $(BUILD)/S_TwoDArray $(TEST)/S_TwoDArray_Test
 
 $(BUILD)/A_TwoDArray: $(ArrayDir)/TwoDArray.cpp $(ArrayDir)/TwoDArray.h $(ArrayDir)/TwoDArrayTest.cpp
 	cd $(ArrayDir); $(MAKE)
@@ -23,3 +23,11 @@ $(TEST)/A_TwoDArray_Test: $(TEST)/A_TwoDArray_Test.cpp
 
 $(TEST)/V_TwoDArray_Test: $(TEST)/V_TwoDArray_Test.cpp
 	cd $(TEST); $(MAKE)
+
+$(TEST)/S_TwoDArray_Test: $(TEST)/S_TwoDArray_Test.cpp
+	cd $(TEST); $(MAKE)
+
+clean:
+	rm -f build/*
+	cd $(SparseDir); $(MAKE) clean
+	cd $(TEST); $(MAKE) clean
