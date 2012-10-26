@@ -19,12 +19,41 @@ TwoDArray<T>::~TwoDArray(){
   delete[] rowA;
   delete[] colA;
 }
-/*
+
 template <typename T>
 void TwoDArray<T>::insert(int r, int c, T value){
   assert(r >= 0 && r < rows && c >= 0 && c < cols);
+  Node<T>* newNode = new Node<T>(r,c,value);
+  //insert place in row
+  Node<T>** cur = &(rowA[r]);
+  while(*cur != 0 && (*cur)->getCol() < c){
+    cur = &((*cur)->getColNext());
+  }
+  if((*cur) == 0|| (*cur)->getCol() != c){
+    newNode->setColNext(*cur);
+    *cur = newNode;
+  }
+  else{
+    newNode->setColNext((*cur)->getColNext());
+    delete (*cur);
+    *cur = newNode;
+  }
+  //insert place in column
+  cur = &(colA[c]);
+  while(*cur != 0 && (*cur)->getRow() < r){
+    cur = &((*cur)->getRowNext());
+  }
+  if((*cur) == 0|| (*cur)->getRow() != r){
+    newNode->setRowNext(*cur);
+    *cur = newNode;
+  }
+  else{
+    newNode->setRowNext((*cur)->getRowNext());
+    delete (*cur);
+    *cur = newNode;
+  }
 }
-
+/*
 template <typename T>
 T TwoDArray<T>::access(int r, int c){
   assert(r >= 0 && r < rows && c >= 0 && c < cols);

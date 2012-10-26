@@ -23,12 +23,12 @@ int Node<T>::getCol(){
 }
 
 template <typename T>
-Node<T>* Node<T>::getRowNext(){
+Node<T>*& Node<T>::getRowNext(){
   return rowNext;
 }
 
 template <typename T>
-Node<T>* Node<T>::getColNext(){
+Node<T>*& Node<T>::getColNext(){
   return colNext;
 }
 

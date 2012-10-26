@@ -2,6 +2,10 @@
 #include<iostream>
 int main(){
   TwoDArray<int>* a = new TwoDArray<int>(2,3,0);
+  a->insert(1,1,5);
+  a->insert(0,0,3);
+  a->insert(0,1,2);
+  a->insert(0,0,2);
   delete a;
   return 0;
 }
