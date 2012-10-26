@@ -34,11 +34,13 @@ void TwoDArray<T>::insert(int r, int c, T value){
 
 template <typename T>
 T TwoDArray<T>::access(int r, int c){
+  assert(r >= 0 && r < rows && c >= 0 && c < cols);
   return array[r][c];
 }
 
 template <typename T>
 void TwoDArray<T>::remove(int r, int c){
+  assert(r >= 0 && r < rows && c >= 0 && c < cols);
   array[r][c] = def; 
 }
 

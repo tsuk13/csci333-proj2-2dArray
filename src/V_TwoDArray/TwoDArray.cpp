@@ -21,16 +21,19 @@ TwoDArray<T>::~TwoDArray(){
 
 template <typename T>
 void TwoDArray<T>::insert(int r, int c, T value){
+  assert(r >= 0 && r < rows && c >= 0 && c < cols);
   vec[r][c] = value;
 }
 
 template <typename T>
 T TwoDArray<T>::access(int r, int c){
+  assert(r >= 0 && r < rows && c >= 0 && c < cols);
   return vec[r][c];
 }
 
 template <typename T>
 void TwoDArray<T>::remove(int r, int c){
+  assert(r >= 0 && r < rows && c >= 0 && c < cols);
   vec[r][c] = def;
 }
 
