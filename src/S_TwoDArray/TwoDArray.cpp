@@ -82,12 +82,34 @@ T TwoDArray<T>::access(int r, int c){
       return cur->getValue();
   }
 }
-/*
+
 template <typename T>
 void TwoDArray<T>::remove(int r, int c){
   assert(r >= 0 && r < rows && c >= 0 && c < cols);
+  //remove place in row
+  Node<T>** cur = &(rowA[r]);
+  while(*cur != 0 && (*cur)->getCol() < c){
+    cur = &((*cur)->getColNext());
+  }
+  if((*cur)->getCol() == c){
+    *cur = (*cur)->getColNext();
+  }
+  else
+    return;
+  //insert place in column
+  cur = &(colA[c]);
+  while(*cur != 0 && (*cur)->getRow() < r){
+    cur = &((*cur)->getRowNext());
+  }
+  if((*cur)->getRow() == r){
+    Node<T>* tmp = (*cur);
+    *cur = (*cur)->getRowNext();
+    delete tmp;
+  }
+  else
+    return;
 }
-
+/*
 template <typename T>
 void TwoDArray<T>::print(){
   for(int r = 0; r < rows; r++){
