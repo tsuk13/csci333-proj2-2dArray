@@ -34,6 +34,19 @@ void TwoDArray<T>::remove(int r, int c){
   vec[r][c] = def;
 }
 
+template <typename T>
+void TwoDArray<T>::print(){
+  for(int r = 0; r < rows; r++){
+    for(int c = 0; c < cols; c++){
+      std::cout << vec[r][c];
+      if(c == cols-1)
+        std::cout << "\n";
+      else
+        std::cout << ", ";
+    }
+  }
+}
+
 template class TwoDArray<int>;
 template class TwoDArray<double>;
 template class TwoDArray<std::string>;
