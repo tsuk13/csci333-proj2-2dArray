@@ -29,6 +29,11 @@ T TwoDArray<T>::access(int r, int c){
   return vec[r][c];
 }
 
+template <typename T>
+void TwoDArray<T>::remove(int r, int c){
+  vec[r][c] = def;
+}
+
 template class TwoDArray<int>;
 template class TwoDArray<double>;
 template class TwoDArray<std::string>;
