@@ -7,7 +7,7 @@ BUILD = build
 TEST = test
 LIB = lib
 
-all: $(BUILD)/A_TwoDArray $(TEST)/A_TwoDArray_Test $(BUILD)/V_TwoDArray $(TEST)/V_TwoDArray_Test $(BUILD)/S_TwoDarray
+all: $(BUILD)/A_TwoDArray $(TEST)/A_TwoDArray_Test $(BUILD)/V_TwoDArray $(TEST)/V_TwoDArray_Test $(BUILD)/S_TwoDArray
 
 $(BUILD)/A_TwoDArray: $(ArrayDir)/TwoDArray.cpp $(ArrayDir)/TwoDArray.h $(ArrayDir)/TwoDArrayTest.cpp
 	cd $(ArrayDir); $(MAKE)
