@@ -9,10 +9,13 @@ GTEST_INCLUDES = -I$(GTEST) -I$(GTEST)/include -pthread
 CPP = g++
 CPPFLAGS = -Wall -Wextra
 
-all: A_TwoDArray_Test
+all: A_TwoDArray_Test V_TwoDArray_Test
 
 A_TwoDArray_Test: A_TwoDArray_Test.cpp $(SRC)/A_TwoDArray/TwoDArray.o $(GTEST_MAINA)
 	$(CPP) $(CPPFLAGS) $(GTEST_INCLUDES) -o A_TwoDArray_Test A_TwoDArray_Test.cpp $(SRC)/A_TwoDArray/TwoDArray.o $(GTEST_MAINA)
+
+V_TwoDArray_Test: V_TwoDArray_Test.cpp $(SRC)/V_TwoDArray/TwoDArray.o $(GTEST_MAINA)
+	$(CPP) $(CPPFLAGS) $(GTEST_INCLUDES) -o V_TwoDArray_Test V_TwoDArray_Test.cpp $(SRC)/V_TwoDArray/TwoDArray.o $(GTEST_MAINA)
 
 $(GTEST_MAINA): $(GTEST)/src/*.cc $(GTEST)/src/*.h
 	cd $(GTEST)/make; make
