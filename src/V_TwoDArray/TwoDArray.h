@@ -7,7 +7,7 @@ using std::vector;
 template <typename T>
 class TwoDArray{
   private:
-    vector<vector<T> >* v;
+    vector<vector<T> > vec;
     int rows;
     int cols;
     T def;
