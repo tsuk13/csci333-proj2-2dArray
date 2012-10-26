@@ -1,13 +1,13 @@
 #ifndef __TWODARRAY__
 #define __TWODARRAY__
 
-#include<vector>
-using std::vector;
+#include"Node.h"
 
 template <typename T>
 class TwoDArray{
   private:
-    vector<vector<T> > vec;
+    Node<T>** rowA;
+    Node<T>** colA;
     int rows;
     int cols;
     T def;
